@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -8,9 +10,10 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
 
-const productRoutes = require("./routes/productRoutes");
+const productRoutes = require("../routes/productRoutes");
 
-app.get(('/'), (req, res) => {
+app.get('/', (req, res) => {
+    console.log('this shoudl equal test' + process.env.test)
     res.send('Hello, World!');
 });
 
