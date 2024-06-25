@@ -11,6 +11,7 @@ app.use(morgan('dev'));
 app.use(cors());
 
 const productRoutes = require("../routes/productRoutes");
+const orderRoutes = require("../routes/orderRoutes");
 
 app.get('/', (req, res) => {
     console.log('this shoudl equal test' + process.env.test)
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/products", productRoutes);
+app.use("/orders", orderRoutes);
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}!`);
