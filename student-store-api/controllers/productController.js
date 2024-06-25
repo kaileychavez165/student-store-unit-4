@@ -3,20 +3,24 @@ const productModel = require("../models/productModel");
 
 // Function gets all the products
 const getAllProducts = async (req, res) => {
-  const { make, sort } = req.query;
+  const { category, price, sort } = req.query;
   let filter = {};
   let orderBy = {};
-  
-  if (make) {
-    filter.make = make;
+
+  if (category) {
+    filter.category = category;
+  }
+
+  if (price) {
+    filter.price = parseInt(price);
   }
 
   if (sort) {
-    orderBy = { make: sort === "asc" ? "asc" : "desc"};
+    orderBy = { name: sort === "asc" ? "asc" : "desc" };
   }
-  
+
   try {
-    const products = await productModel.getAllProducts();
+    const products = await productModel.getAllProducts(filter, orderBy);
     console.log(products);
     res.status(200).json(products);
   } catch (error) {

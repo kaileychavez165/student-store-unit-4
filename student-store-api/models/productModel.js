@@ -2,7 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
 // Function gets all the products
-const getAllProducts = () => {
+const getAllProducts = (filter = {}, orderBy = {}) => {
   return prisma.product.findMany({
     where: filter,
     orderBy: orderBy,
