@@ -81,7 +81,7 @@ const deleteOrder = async (req, res) => {
 };
 
 // Function to add items to an order
-const addOrderItemToOrder = async (req, res) => {
+const addOrderItemsToOrder = async (req, res) => {
     try {
       const orderId = parseInt(req.params.order_id);
       const { items } = req.body;
@@ -94,11 +94,6 @@ const addOrderItemToOrder = async (req, res) => {
         return res.status(404).json({ error: "Order not found" });
       }
   
-      // Ensure items is an array and not undefined
-    if (!Array.isArray(items)) {
-        return res.status(400).json({ error: "Items should be an array" });
-      }
-  
       // Create order items and associate with the order
       const createdItems = await Promise.all(
         items.map(async (item) => {
@@ -109,7 +104,9 @@ const addOrderItemToOrder = async (req, res) => {
           return createdItem;
         })
       );
-  
+
+      // works without promise.all but i want array of newly created items to return
+
       // Calculate new total price of the order
       const updatedOrder = await orderModel.calculateAndUpdateOrderTotal(orderId);
   
@@ -175,7 +172,7 @@ module.exports = {
   createOrder,
   updateOrder,
   deleteOrder,
-  addOrderItemToOrder,
+  addOrderItemsToOrder,
   getOrderTotal
   // addOrderItemToOrder,
   // getOrderTotal

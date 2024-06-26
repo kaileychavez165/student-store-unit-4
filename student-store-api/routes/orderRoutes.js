@@ -13,7 +13,7 @@ router.put("/:order_id", orderController.updateOrder);
 //delete a order
 router.delete("/:order_id", orderController.deleteOrder);
 // add an order item to existing order
-router.post("/:order_id/items", orderController.addOrderItemToOrder);
+router.post("/:order_id/items", orderController.addOrdersItemToOrder);
 // get total of order items in an order
 router.get("/:order_id/total", orderController.getOrderTotal);
 
