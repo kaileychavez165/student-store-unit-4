@@ -6,18 +6,53 @@ const getAllOrders = (filter = {}, orderBy = {}) => {
   return prisma.order.findMany({
     where: filter,
     orderBy: orderBy,
+    include: { orderItems: true },
   });
 };
 
 //Function to get order by ID
 const getOrderById = async (id) => {
-  return prisma.order.findUnique({ where: { order_id: parseInt(id) } });
+  return prisma.order.findUnique({ 
+    where: { order_id: parseInt(id) } ,
+    include: { orderItems: true },
+  });
 };
 
 //Function to create a new order
 const createOrder = async (orderData) => {
   return prisma.order.create({ data: orderData });
 };
+
+/* const createOrder = async (orderData) => {
+    const { customer_id, total_price, status, created_at, order_items } = orderData;
+  
+    try {
+      const newOrder = await prisma.order.create({
+        data: {
+          customer_id,
+          total_price,
+          status,
+          created_at,
+          orderItem: {
+            createMany: {
+              data: orderItem.map(item => ({
+                product_id: item.product_id,
+                quantity: item.quantity,
+                price: item.price,
+              })),
+            },
+          },
+        },
+        include: {
+          orderItem: true, // Ensure you include related order items in the response if needed
+        },
+      });
+  
+      return newOrder;
+    } catch (error) {
+      throw new Error(`Error creating order: ${error.message}`);
+    }
+  }; */
 
 //Function to update a order
 const updateOrder = async (id, orderData) => {
@@ -32,6 +67,45 @@ const deleteOrder = async (id) => {
   return prisma.order.delete({ where: { order_id: parseInt(id) } });
 };
 
+//Function to update a order
+/* const addOrderItemToOrder = async (id, orderData) => {
+  return prisma.order.update({
+    where: { order_id: parseInt(id) },
+    data: orderData,
+    // call create order item here?
+  });
+};
+
+//Function to get order by ID
+const getOrderTotal = async (id) => {
+  return prisma.order.findUnique({ 
+    where: { order_id: parseInt(id) } ,
+    include: { orderItems: true },
+  });
+}; */
+
+// Function to calculate and update order total
+const calculateAndUpdateOrderTotal = async (orderId) => {
+  const order = await prisma.order.findUnique({
+    where: { order_id: orderId },
+    include: { orderItems: true },
+  });
+
+  if (!order) {
+    throw new Error("Order not found");
+  }
+
+  const totalPrice = order.orderItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+);
+
+  return prisma.order.update({
+    where: { order_id: orderId },
+    data: { total_price: totalPrice },
+  });
+};
+
 //export the functions
 module.exports = {
   getAllOrders,
@@ -39,4 +113,7 @@ module.exports = {
   createOrder,
   updateOrder,
   deleteOrder,
+  calculateAndUpdateOrderTotal
+  // addOrderItemToOrder,
+  // getOrderTotal
 };
