@@ -95,7 +95,7 @@ const addOrderItemsToOrder = async (req, res) => {
       }
   
       // Create order items and associate with the order
-      const createdItems = await Promise.all(
+      /* const createdItems = await Promise.all(
         items.map(async (item) => {
           const createdItem = await orderItemModel.createOrderItem({
             ...item,
@@ -103,14 +103,23 @@ const addOrderItemsToOrder = async (req, res) => {
           });
           return createdItem;
         })
-      );
+      );*/
+
+      const createdOrderItems = [];
+    for (const item of items) {
+    const createdOrderItem = await orderItemModel.createOrderItem({
+        ...item,
+        order_id: orderId,
+    });
+    createdOrderItems.push(createdOrderItem);
+    }
 
       // works without promise.all but i want array of newly created items to return
 
       // Calculate new total price of the order
       const updatedOrder = await orderModel.calculateAndUpdateOrderTotal(orderId);
   
-      res.status(200).json({ order: updatedOrder, createdItems });
+      res.status(200).json({ order: updatedOrder, createdOrderItems });
     } catch (error) {
       res.status(400).json({ error: error.message });
     }

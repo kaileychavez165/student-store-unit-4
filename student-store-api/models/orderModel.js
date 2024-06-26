@@ -95,10 +95,10 @@ const calculateAndUpdateOrderTotal = async (orderId) => {
     throw new Error("Order not found");
   }
 
-  const totalPrice = order.orderItems.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-);
+  let totalPrice = 0;
+  for (const item of order.orderItems) {
+    totalPrice += item.price * item.quantity;
+  }
 
   return prisma.order.update({
     where: { order_id: orderId },
