@@ -63,8 +63,43 @@ const updateOrder = async (id, orderData) => {
 };
 
 //Function to delete a order
-const deleteOrder = async (id) => {
+/* const deleteOrder = async (id) => {
   return prisma.order.delete({ where: { order_id: parseInt(id) } });
+}; */
+
+const deleteOrder = async (id) => {
+  const orderId = parseInt(id);
+
+  try {
+    // Fetch order items associated with the order
+    const orderItems = await prisma.orderItem.findMany({
+      where: {
+        order_id: orderId,
+      },
+    });
+
+    // Delete each order item
+    await Promise.all(
+      orderItems.map(async (item) => {
+        await prisma.orderItem.delete({
+          where: {
+            order_item_id: item.order_item_id,
+          },
+        });
+      })
+    );
+
+    // Now delete the order itself
+    const deletedOrder = await prisma.order.delete({
+      where: {
+        order_id: orderId,
+      },
+    });
+
+    return deletedOrder;
+  } catch (error) {
+    throw new Error(`Error deleting order: ${error.message}`);
+  }
 };
 
 //Function to update a order

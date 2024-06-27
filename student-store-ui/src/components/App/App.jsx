@@ -32,6 +32,42 @@ function App() {
   const handleGetItemQuantity = (item) => getQuantityOfItemInCart(cart, item);
   const handleGetTotalCartItems = () => getTotalItemsInCart(cart);
 
+    // Fetch products on mount
+    useEffect(() => {
+      const fetchProducts = async () => {
+        setIsFetching(true);
+        try {
+          const response = await axios.get("http://localhost:3000/products");
+          setProducts(response.data);
+        } catch (err) {
+          setError(err);
+        } finally {
+          setIsFetching(false);
+        }
+      };
+      fetchProducts();
+    }, []);
+  
+    // Function to update a product
+    const updateProduct = async (productId, prodData) => {
+      try {
+        const response = await axios.put(`http://localhost:3000/products/${productId}`, prodData);
+        console.log("Product updated:", response.data);
+      } catch (err) {
+        setError(err);
+      }
+    };
+  
+    // Function to create a new product
+    const createProduct = async (prodData) => {
+      try {
+        const response = await axios.post("http://localhost:3000/products", prodData);
+        console.log("Product created:", response.data);
+      } catch (err) {
+        setError(err);
+      }
+    };
+
   const handleOnSearchInputChange = (event) => {
     setSearchInputValue(event.target.value);
   };

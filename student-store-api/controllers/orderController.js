@@ -136,7 +136,11 @@ const addOrderItemsToOrder = async (req, res) => {
       }
   
       // Calculate total price based on order items
-      const totalPrice = order.orderItems.reduce((total, item) => total + item.price * item.quantity, 0);
+      let totalPrice = 0;
+        for (const item of order.orderItems) {
+            totalPrice += item.price * item.quantity;
+        }
+
       const updatedOrderId = await orderModel.calculateAndUpdateOrderTotal(orderId);
   
       res.status(200).json({ order_id: updatedOrderId, total_price: totalPrice });
