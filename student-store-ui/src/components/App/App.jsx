@@ -89,7 +89,7 @@ function App() {
     console.log(orderItems);
     // Iterate through orderItems and print values
 
-    const total_price = ;
+    const total_price = 10;
     orderData.total_price = total_price;
 
     await axios.post(`${baseUrl}orders/${orderId}/items`, { items: orderItems });
