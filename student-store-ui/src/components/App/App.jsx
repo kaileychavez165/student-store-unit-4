@@ -87,14 +87,12 @@ function App() {
 
     console.log(cart);
     console.log(orderItems);
-    // Iterate through orderItems and print values
-
-    const total_price = 10;
-    orderData.total_price = total_price;
 
     await axios.post(`${baseUrl}orders/${orderId}/items`, { items: orderItems });
+    await axios.put(`${baseUrl}orders/${orderId}`, {status: "completed"});  // update status
 
     setCart({}); //clear cart
+    setUserInfo({ name: "", id: ""});
     setError(null);
   } catch (error) {
     console.error("Error creating order:", error);
