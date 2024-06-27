@@ -1,7 +1,5 @@
-// import productModel
 const productModel = require("../models/productModel");
 
-// Function gets all the products
 const getAllProducts = async (req, res) => {
   const { category, price, sort } = req.query;
   let filter = {};
@@ -21,14 +19,12 @@ const getAllProducts = async (req, res) => {
 
   try {
     const products = await productModel.getAllProducts(filter, orderBy);
-    console.log(products);
     res.status(200).json(products);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
 
-//Function to get product by ID
 const getProductById = async (req, res) => {
   try {
     const product = await productModel.getProductById(req.params.id);
@@ -42,7 +38,6 @@ const getProductById = async (req, res) => {
   }
 };
 
-//Function to create a new product
 const createProduct = async (req, res) => {
   try {
     const newproduct = await productModel.createProduct(req.body);
@@ -52,8 +47,7 @@ const createProduct = async (req, res) => {
   }
 };
 
-//Function to update a product
-const udpateProduct = async (req, res) => {
+const updateProduct = async (req, res) => {
   try {
     const updatedproduct = await productModel.updateProduct(req.params.id, req.body);
     if (updatedproduct) {
@@ -66,7 +60,6 @@ const udpateProduct = async (req, res) => {
   }
 };
 
-//Function to delete a product
 const deleteProduct = async (req, res) => {
   try {
     const deletedproduct = await productModel.deleteProduct(req.params.id);
@@ -80,11 +73,10 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-//export the functions
 module.exports = {
   getAllProducts,
   getProductById,
   createProduct,
-  udpateProduct,
+  updateProduct,
   deleteProduct,
 };

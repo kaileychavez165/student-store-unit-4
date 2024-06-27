@@ -1,7 +1,5 @@
-// import orderModel
 const orderItemModel = require("../models/orderItemModel");
 
-// Function gets all the orders
 const getAllOrderItems = async (req, res) => {
   try {
     const orderitems = await orderItemModel.getAllOrderItems();
@@ -11,7 +9,6 @@ const getAllOrderItems = async (req, res) => {
   }
 };
 
-//Function to get order by ID
 const getOrderItemById = async (req, res) => {
   try {
     const orderitem = await orderItemModel.getOrderItemById(req.params.order_item_id);
@@ -25,7 +22,6 @@ const getOrderItemById = async (req, res) => {
   }
 };
 
-//Function to create a new order
 const createOrderItem = async (req, res) => {
   try {
     const neworderitem = await orderItemModel.createOrderItem(req.body);
@@ -35,7 +31,6 @@ const createOrderItem = async (req, res) => {
   }
 };
 
-//Function to update a order
 const updateOrderItem = async (req, res) => {
     try {
       const updatedorderitem = await orderItemModel.updateOrderItem(req.params.order_item_id, req.body);
@@ -49,7 +44,6 @@ const updateOrderItem = async (req, res) => {
     }
   };
   
-  //Function to delete a order
   const deleteOrderItem = async (req, res) => {
     try {
       const deletedorderitem = await orderItemModel.deleteOrderItem(req.params.order_item_id);

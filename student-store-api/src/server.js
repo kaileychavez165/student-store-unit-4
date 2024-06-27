@@ -15,7 +15,6 @@ const orderRoutes = require("../routes/orderRoutes");
 const orderItemRoutes = require("../routes/orderItemRoutes");
 
 app.get('/', (req, res) => {
-    console.log('this shoudl equal test' + process.env.test)
     res.send('Hello, World!');
 });
 

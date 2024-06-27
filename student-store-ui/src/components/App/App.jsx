@@ -15,7 +15,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All Categories");
   const [searchInputValue, setSearchInputValue] = useState("");
-  const [userInfo, setUserInfo] = useState({ name: "", dorm_number: ""});
+  const [userInfo, setUserInfo] = useState({ name: "", email: ""});
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   const [isFetching, setIsFetching] = useState(false);
@@ -73,10 +73,8 @@ function App() {
       status: "pending",
     };
 
-    const orderResponse = await axios.post(`${baseUrl}orders`, orderData);
-    const orderId = orderResponse.data.order_id; 
-
-    console.log('Order created without items:', orderId);
+    let orderResponse = await axios.post(`${baseUrl}orders`, orderData);
+    const orderId = orderResponse.data.order_id;
 
     // fix syntax?? //able to create order with items if item data is hardcoded
     const orderItems = Object.entries(cart).map(item => ({
@@ -85,14 +83,13 @@ function App() {
       price: getItemPrice(item[0]),
     }));
 
-    console.log(cart);
-    console.log(orderItems);
-
     await axios.post(`${baseUrl}orders/${orderId}/items`, { items: orderItems });
     await axios.put(`${baseUrl}orders/${orderId}`, {status: "completed"});  // update status
+    orderResponse = await axios.get(`${baseUrl}orders/${orderId}`);
 
+    setOrder(orderResponse.data);
     setCart({}); //clear cart
-    setUserInfo({ name: "", id: ""});
+    setUserInfo({ name: "", email: ""});
     setError(null);
   } catch (error) {
     console.error("Error creating order:", error);

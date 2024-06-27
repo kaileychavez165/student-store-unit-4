@@ -13,17 +13,7 @@ const getOrderItemById = async (id) => {
 
 //Function to create a new order
 const createOrderItem = async (orderItemData) => {
-    try {
-        const createdItem = await prisma.orderItem.create({
-          data: orderItemData,
-        });
-        return createdItem;
-      } catch (error) {
-        // Log the error for debugging purposes
-        console.error(`Error creating order item: ${error.message}`);
-        // Throw a more specific error or handle as needed
-        throw new Error(`Failed to create order item: ${error.message}`);
-      }
+  return prisma.orderItem.create({ data: orderItemData });
 };
 
 //Function to update a order
