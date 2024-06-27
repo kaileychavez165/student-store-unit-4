@@ -32,11 +32,15 @@ function App() {
   const handleGetItemQuantity = (item) => getQuantityOfItemInCart(cart, item);
   const handleGetTotalCartItems = () => getTotalItemsInCart(cart);
 
+  const baseUrl = "http://localhost:3000/";
+
+  console.log(products);
+
     useEffect(() => {
       const fetchProducts = async () => {
         setIsFetching(true);
         try {
-          const response = await axios.get("http://localhost:3000/products");
+          const response = await axios.get(baseUrl + "products");
           setProducts(response.data);
         } catch (err) {
           setError(err);
@@ -51,8 +55,110 @@ function App() {
     setSearchInputValue(event.target.value);
   };
 
-  const handleOnCheckout = async () => {
+  const getItemPrice = (productId) => {
+    const foundItem = products.filter(item => item.id === parseInt(productId))[0];
+
+    console.log(foundItem);
+
+    return foundItem.price;
   }
+
+  const handleOnCheckout = async () => {
+    setIsCheckingOut(true);
+
+  try {
+    const orderData = {
+      customer_id: parseInt(userInfo.name), 
+      total_price: 0, //default price
+      status: "pending",
+    };
+
+    const orderResponse = await axios.post(`${baseUrl}orders`, orderData);
+    const orderId = orderResponse.data.order_id; 
+
+    console.log('Order created without items:', orderId);
+
+    // fix syntax?? //able to create order with items if item data is hardcoded
+    const orderItems = Object.entries(cart).map(item => ({
+      product_id: parseInt(item[0]),
+      quantity: item[1],
+      price: getItemPrice(item[0]),
+    }));
+
+    console.log(cart);
+    console.log(orderItems);
+    // Iterate through orderItems and print values
+
+    const total_price = ;
+    orderData.total_price = total_price;
+
+    await axios.post(`${baseUrl}orders/${orderId}/items`, { items: orderItems });
+
+    setCart({}); //clear cart
+    setError(null);
+  } catch (error) {
+    console.error("Error creating order:", error);
+    setError(error.response?.data?.error || "Failed to create order");
+  } finally {
+    setIsCheckingOut(false);
+  }
+    /*setIsCheckingOut(true);
+
+    try {
+      // Prepare orderData from cart items
+      const orderItems = Object.values(cart).map(item => ({
+        product_id: item.id,
+        price: item.price,
+        quantity: item.quantity
+      }));
+
+      const orderData = {
+        customer_id: parseInt(userInfo.name), // Assuming userInfo has customer details
+        total_price: 10, // Implement your own function to calculate total price
+        status: "pending",
+        orderItems: {
+          create: orderItems
+        }
+      };
+
+      // Make POST request to create order
+      const response = await axios.post(`${baseUrl}orders`, orderData);
+      const orderId = response.data.id; // Assuming response.data contains the created order details
+
+      console.log('Order created successfully:', orderId);
+
+      // Handle success: Maybe navigate to a success page or show a success message
+      // Reset cart after successful order creation
+      setCart({});
+      setError(null); // Clear any previous errors
+    } catch (error) {
+      console.error("Error creating order:", error);
+      setError(error.response?.data?.error || "Failed to create order");
+    } finally {
+      setIsCheckingOut(false);
+    } */
+  }
+
+  /* setIsCheckingOut(true); // Set checkout state to true
+
+    try {
+      // Create an order with the current cart items
+      const response = await axios.post(baseUrl + "orders", { items: Object.values(cart) });
+
+      // Handle success
+      if (response.status === 201) {
+        setOrder(response.data); // Set the created order state
+        setCart({}); // Reset the cart
+        setIsCheckingOut(false); // Reset checkout state
+      } else {
+        setError("Failed to create order"); // Handle other response statuses
+        setIsCheckingOut(false); // Reset checkout state on error
+      }
+    } catch (error) {
+      setError(error.message); // Handle network errors or other exceptions
+      setIsCheckingOut(false); // Reset checkout state on error
+    } */
+
 
   return (
     <div className="App">

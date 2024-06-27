@@ -71,7 +71,7 @@ const deleteOrder = async (id) => {
   const orderId = parseInt(id);
 
   try {
-    // Fetch order items associated with the order
+    /* // Fetch order items associated with the order
     const orderItems = await prisma.orderItem.findMany({
       where: {
         order_id: orderId,
@@ -87,7 +87,7 @@ const deleteOrder = async (id) => {
           },
         });
       })
-    );
+    ); */
 
     // Now delete the order itself
     const deletedOrder = await prisma.order.delete({
