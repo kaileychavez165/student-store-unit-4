@@ -51,7 +51,7 @@ Estimated time spent: **12** hours spent in total
   - [ ] Build a page in the UI that displays the list of all past orders. The user should be able to click on any individual order to take them to a more detailed page of the transaction.
 
 
-### Walkthrough Video
+### Walkthrough Videos
 
 <div>
     <a href="https://www.loom.com/share/78902c0b74274018814f33f3027787cb">
