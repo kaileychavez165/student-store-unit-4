@@ -1,6 +1,7 @@
 ## Unit Assignment: Student Store
 
 Submitted by: **Kailey Chavez**
+Hours spent: **12**
 
 ### Application Features
 
@@ -51,8 +52,6 @@ Submitted by: **Kailey Chavez**
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
-
 <div>
     <a href="https://www.loom.com/share/78902c0b74274018814f33f3027787cb">
       <p>Kailey Chavez - Student Store - Pt. 1 - Watch Video</p>
@@ -61,6 +60,7 @@ Submitted by: **Kailey Chavez**
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/78902c0b74274018814f33f3027787cb-with-play.gif">
     </a>
   </div>
+
 
 <div>
     <a href="https://www.loom.com/share/511d8ea2d5634a0abc5d6c1df9eb82b0">
@@ -71,33 +71,34 @@ Submitted by: **Kailey Chavez**
     </a>
   </div>
 
-  <div>
+
+<div>
     <a href="https://www.loom.com/share/eb0c46ee92224d55b952e0721c55c731">
       <p>Kailey Chavez - Student Store - Pt. 3 - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/eb0c46ee92224d55b952e0721c55c731">
-      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/eb0c46ee92224d55b952e0721c55c731-with-play.gif">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/eb0c46ee92224d55b952e0721c55c731-1719547328250-with-play.gif">
     </a>
-  </div>
+</div>
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I would say that I did feel prepared to complete the assignment with  one-on-one support from the CodePath instructors and the code-along examples from our lessons. I did feel a bit unprepared to complete milestone 6.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+If I had more time, I would have definitely liked to have worked more on stretch features. In terms of changing the way my project responded to a certain event, I would have liked for it to have been able to sort the products by certain filters.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+My project demo went great! I received positive feedback on my project, which made me happy because I was proud of it. I was also able to share some tips on how to address a particular problem in the project.
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+- No open-source libraries were used, but StackOverflow, YouTube, MDN Web Docs, and Prisma documentation were used.
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Shout out to Devarsh, Keith, Alex, Mabel, Chris, and Nathan for their guidance and support throughout this entire project!
