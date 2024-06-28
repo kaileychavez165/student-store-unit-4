@@ -1,7 +1,8 @@
 ## Unit Assignment: Student Store
 
 Submitted by: **Kailey Chavez**
-Hours spent: **12**
+
+Estimated time spent: **12** hours spent in total
 
 ### Application Features
 
@@ -54,7 +55,7 @@ Hours spent: **12**
 
 <div>
     <a href="https://www.loom.com/share/78902c0b74274018814f33f3027787cb">
-      <p>Kailey Chavez - Student Store - Pt. 1 - Watch Video</p>
+      <p>Kailey Chavez - Student Store - Pt. 1 (Schema, Routes, PostgreSQL, Prisma Studio, and Website Functionality) - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/78902c0b74274018814f33f3027787cb">
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/78902c0b74274018814f33f3027787cb-with-play.gif">
@@ -64,7 +65,7 @@ Hours spent: **12**
 
 <div>
     <a href="https://www.loom.com/share/511d8ea2d5634a0abc5d6c1df9eb82b0">
-      <p>Kailey Chavez - Student Store - Pt. 2 - Watch Video</p>
+      <p>Kailey Chavez - Student Store - Pt. 2 (Testing API Endpoints using Postman) - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/511d8ea2d5634a0abc5d6c1df9eb82b0">
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/511d8ea2d5634a0abc5d6c1df9eb82b0-with-play.gif">
@@ -74,7 +75,7 @@ Hours spent: **12**
 
 <div>
     <a href="https://www.loom.com/share/eb0c46ee92224d55b952e0721c55c731">
-      <p>Kailey Chavez - Student Store - Pt. 3 - Watch Video</p>
+      <p>Kailey Chavez - Student Store - Pt. 3 (API Endpoint Testing cont'd.) - Watch Video</p>
     </a>
     <a href="https://www.loom.com/share/eb0c46ee92224d55b952e0721c55c731">
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/eb0c46ee92224d55b952e0721c55c731-1719547328250-with-play.gif">
@@ -85,15 +86,15 @@ Hours spent: **12**
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-I would say that I did feel prepared to complete the assignment with  one-on-one support from the CodePath instructors and the code-along examples from our lessons. I did feel a bit unprepared to complete milestone 6.
+I would say that I did feel prepared to complete the assignment with one-on-one support from the CodePath instructors and the code-along examples from our lessons. The one milestone that was quite intimidating was milestone 6; I feel as if we lacked some knowledge on how to complete this particular milestone, but all of the instructors were really great in helping us make sure our front-end was properly connected to our back-end in this milestone. I also experienced some issue with syntax since I don't think we had covered it too in-depth during class, but, once again, the instructors definitely guided us well when approaching them for support.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-If I had more time, I would have definitely liked to have worked more on stretch features. In terms of changing the way my project responded to a certain event, I would have liked for it to have been able to sort the products by certain filters.
+If I had more time, I would have definitely liked to have worked more on stretch features, like filtering the orders by email. In terms of changing the way my project responded to a certain event, I wouldn't say there's something that comes to mind; I really liked the functionality of the website and how the endpoints work in managing products and orders with their associated items.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-My project demo went great! I received positive feedback on my project, which made me happy because I was proud of it. I was also able to share some tips on how to address a particular problem in the project.
+My project demo went really well! I received positive feedback on my project, which made me happy because I was proud of being able to complete the bulk of the functionality before the demo. I was also able to share a tip on how to address clearing the ID and email input fields after submitting an order, and I think this helped some of my peers in the demo, which I was glad about. Something that didn't go to plan was some issues with deleting products with associated order items, which I was able to fix after our demo with help from Devarsh, Chris, and Kiahna. I liked how Hanna had a checkbox regarding "Terms and Conditions", which I believe needed to be checked before submitting your order; I thought this was a unique touch, and I would have liked to have implemented something similar.
 
 ### Open-source libraries used
 
