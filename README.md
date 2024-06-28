@@ -1,51 +1,46 @@
-📝 `NOTE` Use this template to initialize the contents of a README.md file for your application. As you work on your assignment over the course of the week, update the required or stretch features lists to indicate which features you have completed by changing `[ ]` to `[x]`. (🚫 Remove this paragraph before submitting your assignment.)
-
 ## Unit Assignment: Student Store
 
-Submitted by: **NAME**
-
-Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
+Submitted by: **Kailey Chavez**
 
 ### Application Features
 
 #### CORE FEATURES
 
-
-- [ ] **Database Creation**: Set up a Postgres database to store information about products and orders.
-  - [ ] Use the provided schema to create tables for `products`, `orders`, and `order_items`.
-- [ ] **Products Model**: Develop a model to represent individual items available in the store. 
-  - [ ] This model should include attributes such as `id`, `name`, `description`, `price`, `image_url`, and `category`.
-  - [ ] Implement methods for CRUD operations on products.
-  - [ ] Ensure transaction handling for the deletion of products to also delete related `order_items`
-- [ ]**Orders Model**: Develop a model to manage orders. 
-  - [ ] This model should include attributes such as `order_id`, `customer_id`, `total_price`, `status`, and `created_at`.
-  - [ ] Implement methods for creating, fetching, updating, and deleting orders.
-  - [ ] Ensure transaction handling for the deletion of orders to also delete related `order_items`
-- [ ] **Order Items Model**: Develop a model to represent the items within an order. 
-  - [ ] This model should include attributes such as `order_item_id`, `order_id`, `product_id`, `quantity`, and `price`.
-  - [ ] Implement methods for fetching and creating order items.
-- [ ] **API Endpoints**
-  - [ ] **Product Endpoints**:
-    - [ ] `GET /products`: Fetch a list of all products.
-    - [ ] `GET /products/:id`: Fetch details of a specific product by its ID.
-    - [ ] `POST /products`: Add a new product to the database.
-    - [ ] `PUT /products/:id`: Update the details of an existing product.
-    - [ ] `DELETE /products/:id`: Remove a product from the database.
-  - [ ] **Order Endpoints**:
-    - [ ] `GET /orders`: Fetch a list of all orders.
-    - [ ] `GET /orders/:order_id`: Fetch details of a specific order by its ID, including the order items.
-    - [ ] `POST /orders`: Create a new order with order items.
-    - [ ] `PUT /orders/:order_id`: Update the details of an existing order (e.g., change status).
-    - [ ] `DELETE /orders/:order_id`: Remove an order from the database.
-- [ ] **Frontend Integration**
-  - [ ] Connect the backend API to the provided frontend interface, ensuring dynamic interaction for product browsing, cart management, and order placement. Adjust the frontend as necessary to work with your API.
+- [x] **Database Creation**: Set up a Postgres database to store information about products and orders.
+  - [x] Use the provided schema to create tables for `products`, `orders`, and `order_items`.
+- [x] **Products Model**: Develop a model to represent individual items available in the store. 
+  - [x] This model should include attributes such as `id`, `name`, `description`, `price`, `image_url`, and `category`.
+  - [x] Implement methods for CRUD operations on products.
+  - [x] Ensure transaction handling for the deletion of products to also delete related `order_items`
+- [x]**Orders Model**: Develop a model to manage orders. 
+  - [x] This model should include attributes such as `order_id`, `customer_id`, `total_price`, `status`, and `created_at`.
+  - [x] Implement methods for creating, fetching, updating, and deleting orders.
+  - [x] Ensure transaction handling for the deletion of orders to also delete related `order_items`
+- [x] **Order Items Model**: Develop a model to represent the items within an order. 
+  - [x] This model should include attributes such as `order_item_id`, `order_id`, `product_id`, `quantity`, and `price`.
+  - [x] Implement methods for fetching and creating order items.
+- [x] **API Endpoints**
+  - [x] **Product Endpoints**:
+    - [x] `GET /products`: Fetch a list of all products.
+    - [x] `GET /products/:id`: Fetch details of a specific product by its ID.
+    - [x] `POST /products`: Add a new product to the database.
+    - [x] `PUT /products/:id`: Update the details of an existing product.
+    - [x] `DELETE /products/:id`: Remove a product from the database.
+  - [x] **Order Endpoints**:
+    - [x] `GET /orders`: Fetch a list of all orders.
+    - [x] `GET /orders/:order_id`: Fetch details of a specific order by its ID, including the order items.
+    - [x] `POST /orders`: Create a new order with order items.
+    - [x] `PUT /orders/:order_id`: Update the details of an existing order (e.g., change status).
+    - [x] `DELETE /orders/:order_id`: Remove an order from the database.
+- [x] **Frontend Integration**
+  - [x] Connect the backend API to the provided frontend interface, ensuring dynamic interaction for product browsing, cart management, and order placement. Adjust the frontend as necessary to work with your API.
 
 
 #### STRETCH FEATURES
 
-- [ ] **Added Endpoints**
-  - [ ] Create an endpoint for fetching all orders in the database.
-  - [ ] Create an endpoint for serving an individual order based on its ID.
+- [x] **Added Endpoints**
+  - [x] Create an endpoint for fetching all orders in the database.
+  - [x] Create an endpoint for serving an individual order based on its ID.
 - [ ] **Filter Orders**
   - [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
 - [ ] **Implement Your Own Frontend**
@@ -58,7 +53,32 @@ Deployed Application (optional): [Student Store Deployed Site](ADD_LINK_HERE)
 
 `TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+<div>
+    <a href="https://www.loom.com/share/78902c0b74274018814f33f3027787cb">
+      <p>Kailey Chavez - Student Store - Pt. 1 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/78902c0b74274018814f33f3027787cb">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/78902c0b74274018814f33f3027787cb-with-play.gif">
+    </a>
+  </div>
+
+<div>
+    <a href="https://www.loom.com/share/511d8ea2d5634a0abc5d6c1df9eb82b0">
+      <p>Kailey Chavez - Student Store - Pt. 2 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/511d8ea2d5634a0abc5d6c1df9eb82b0">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/511d8ea2d5634a0abc5d6c1df9eb82b0-with-play.gif">
+    </a>
+  </div>
+
+  <div>
+    <a href="https://www.loom.com/share/eb0c46ee92224d55b952e0721c55c731">
+      <p>Kailey Chavez - Student Store - Pt. 3 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/eb0c46ee92224d55b952e0721c55c731">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/eb0c46ee92224d55b952e0721c55c731-with-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 
